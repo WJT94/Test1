@@ -1,27 +1,21 @@
 books = {
-    "In Our Time": "Ernest Hemingway",
-    "A Farewell to Arms": "Ernest Hemingway",
-    "For Whom the Bell Tolls": "Ernest Hemingway",
-    "The Catcher in the Rye": "J. D. Salinger",
-    "The Great Gatsby": "F. Scott Fitzgerald",
-    "To Kill a Mockingbird": "Harper Lee",
-    "Jane Eyre": "Charlotte Bronte"
+    "Ernest Hemingway": ["In Our Time", "A Farewell to Arms", "For Whom the Bell Tolls"],
+    "J. D. Salinger": ["The Catcher in the Rye"],
+    "F. Scott Fitzgerald": ["The Great Gatsby"],
+    "Harper Lee": ["To Kill a Mockingbird"],
+    "Charlotte Bronte": ["Jane Eyre"],
+    "Margaret Atwood": ["The Handmaiden's Tale"],
+    "J.R.R. Tolkien": ["The Hobbit"],
+    "Roald Dahl": ["The Witches", "Charlie and the Chocolate Factory"]
 }
 
+author = input("\nPlease enter an author's name: ")
+author.strip()
 
-def get_books_by_author(author):
-    book_list = []
-    for k, v in books.items():  # For each book in the dictionary
-        if author.lower() == v.lower():  # check if its value is the selected author
-            book_list.append(k)  # if so, add that book to the returned list
-
-    book_list.sort() # Alphabetically sorts the returned list
-
-    if len(book_list) > 0:
-        print(f"The following books are by {author}:  {', '.join(book_list)}")
-    else:
-        print(f"We do not have any books by {author}.")
-
-
-prompt = input("Please enter an author's name: ")
-get_books_by_author(prompt)
+if author in books:
+    book_list = books[author].copy()  # Creates a copy of the author's book list
+    book_list.sort()  # Sorts the list in alphabetical order
+    book_string = ", ".join(book_list)  # Conjoins the items of the list into a string
+    print(f"The following books are by {author}:  {book_string}")
+else:
+    print(f"We do not have any books by {author}. Did you enter the name correctly?")

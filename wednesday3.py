@@ -6,18 +6,16 @@
     40% or higher: "D"
     50% or higher: "C"
     60% or higher: "B"
-70% or higher: "A"
+    70% or higher: "A"
 '''
 
 marks = {'maths': 0, 'chemistry': 0, 'physics': 0}
 
-print("Welcome to Grade Calculator.")
-print("\nPlease enter your maths mark.")
-marks['maths'] = int(input())
-print("\nPlease enter your chemistry mark.")
-marks['chemistry'] = int(input())
-print("\nPlease enter your physics mark.")
-marks['physics'] = int(input())
+print("Welcome to the Grade Calculator.")
+
+for subject in marks:
+    print(f"\nPlease enter your {subject} mark.")
+    marks[subject] = int(input())
 
 marks_sum = sum(marks.values())
 marks_average = marks_sum/len(marks)

@@ -1,5 +1,5 @@
 class Character:
-    def __init__(self, name, adventurer_class):
+    def __init__(self, name):
         self.name = name
         self.alive = True
 
